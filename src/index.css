@@ -1,0 +1,139 @@
+:root {
+  --bg-canvas: #F5F2EB;
+  --bg-surface: #FFFFFF;
+  --bg-surface-elevated: #FDFCF9;
+  --bg-surface-subtle: #EFECE3;
+  --bg-surface-dark: #161B22;
+
+  --border-subtle: #E2DDD2;
+  --border-medium: #D1C9BA;
+  --border-focus: #23685F;
+
+  --text-primary: #161B22;
+  --text-secondary: #57606A;
+  --text-muted: #8C959F;
+
+  --accent-teal: #23685F;
+  --accent-teal-dim: rgba(35, 104, 95, 0.12);
+  --accent-teal-border: rgba(35, 104, 95, 0.3);
+
+  --accent-vermilion: #C93B2B;
+  --accent-vermilion-dim: rgba(201, 59, 43, 0.12);
+  --accent-vermilion-border: rgba(201, 59, 43, 0.35);
+
+  --accent-gold: #B45309;
+  --accent-gold-dim: rgba(180, 83, 9, 0.12);
+
+  --font-serif: 'Newsreader', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', Consolas, "Courier New", monospace;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-canvas);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-variant-numeric: tabular-nums;
+  overflow-x: hidden;
+}
+
+/* Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-canvas);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-medium);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+button {
+  font-family: inherit;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+
+/* Layout Utilities */
+.editorial-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 4px 12px rgba(22, 27, 34, 0.03);
+}
+
+.dark-editorial-card {
+  background: var(--bg-surface-dark);
+  color: #F0F6FC;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+}
+
+.mono {
+  font-family: var(--font-mono);
+}
+
+.serif-heading {
+  font-family: var(--font-serif);
+  letter-spacing: -0.01em;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+.app-main {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Print Styles for Executive Research Brief */
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #111111 !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .editorial-card {
+    box-shadow: none !important;
+    border: 1px solid #cccccc !important;
+  }
+}
+
+/* Mobile & Tablet Responsiveness */
+@media (max-width: 768px) {
+  header {
+    height: auto !important;
+    padding: 10px 12px !important;
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+  }
+  header nav {
+    overflow-x: auto !important;
+    max-width: 100% !important;
+    padding-bottom: 4px !important;
+  }
+}
